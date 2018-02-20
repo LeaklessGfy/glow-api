@@ -1,5 +1,6 @@
 import { Component } from "@nestjs/common";
 import { ModeDTO } from "../dto/mode.dto";
+//import * as M from "../../wlw-engine/src/resources/modes";
 
 @Component()
 export class ModeService {

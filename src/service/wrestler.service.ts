@@ -1,12 +1,13 @@
 import { Component } from "@nestjs/common";
 import { WrestlerDTO } from "../dto/wrestler.dto";
+import * as W from "../../wlw-engine/src/resources/wrestlers";
 
 @Component()
 export class WrestlerService {
   private readonly wrestlers: WrestlerDTO[];
 
   constructor() {
-    this.wrestlers = [];
+    this.wrestlers = [W.JohnCena, W.TripleH];
   }
 
   findAll(): WrestlerDTO[] {
@@ -14,6 +15,6 @@ export class WrestlerService {
   }
 
   find(uid: string): WrestlerDTO {
-    return null;
+    return this.wrestlers.find(wrestler => wrestler.uid === uid);
   }
 }

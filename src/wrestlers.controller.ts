@@ -25,7 +25,7 @@ export class WrestlersController {
     type: WrestlerDTO
   })
   @Get(":uid")
-  findOne(@Param() params): WrestlerDTO {
-    return this.service.find(params.uid);
+  findOne(@Param("uid") uid: string): WrestlerDTO {
+    return this.service.find(uid);
   }
 }
