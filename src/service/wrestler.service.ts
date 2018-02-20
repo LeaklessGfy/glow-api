@@ -7,7 +7,7 @@ export class WrestlerService {
   private readonly wrestlers: WrestlerDTO[];
 
   constructor() {
-    this.wrestlers = [W.JohnCena, W.TripleH];
+    this.wrestlers = [W.JohnCena, W.RandyOrton, W.TripleH];
   }
 
   findAll(): WrestlerDTO[] {
