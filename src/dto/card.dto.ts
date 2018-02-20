@@ -10,7 +10,10 @@ export class CardDTO implements Card {
   @ApiModelProperty() stamina: number;
   @ApiModelProperty() intensity: number;
   @ApiModelProperty() damage?: number;
-  @ApiModelProperty() targets: string[];
+
+  @ApiModelProperty({ isArray: true, type: String })
+  targets: string[];
+
   @ApiModelProperty() reverseable: boolean;
   @ApiModelProperty() rarity: string;
   @ApiModelProperty() valid?: boolean;

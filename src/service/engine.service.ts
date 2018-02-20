@@ -3,6 +3,7 @@ import Kernel from "../../wlw-engine/src/models/kernel";
 import Engine from "../../wlw-engine/src/models/engine";
 import CoreKernel from "../../wlw-engine/src/kernel";
 import CoreEngine from "../../wlw-engine/src/engine";
+import Ddt from "../../wlw-engine/src/resources/cards/banals/ddt.card";
 
 @Component()
 export class EngineService {
@@ -10,7 +11,12 @@ export class EngineService {
   private readonly engine: Engine;
 
   constructor() {
-    this.kernel = new CoreKernel();
+    this.kernel = new CoreKernel([
+      {
+        uid: "ddt",
+        fn: Ddt
+      }
+    ]);
     this.engine = new CoreEngine(this.kernel);
   }
 

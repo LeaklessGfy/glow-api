@@ -1,8 +1,10 @@
 import { Module } from "@nestjs/common";
 import { ActionsController } from "./actions.controller";
+import { CardsController } from "./cards.controller";
 import { ModesController } from "./modes.controller";
 import { StatesController } from "./states.controller";
 import { WrestlersController } from "./wrestlers.controller";
+import { CardService } from "./service/card.service";
 import { EngineService } from "./service/engine.service";
 import { ModeService } from "./service/mode.service";
 import { WrestlerService } from "./service/wrestler.service";
@@ -11,10 +13,11 @@ import { WrestlerService } from "./service/wrestler.service";
   imports: [],
   controllers: [
     ActionsController,
+    CardsController,
     ModesController,
     StatesController,
     WrestlersController
   ],
-  components: [EngineService, ModeService, WrestlerService]
+  components: [CardService, EngineService, ModeService, WrestlerService]
 })
 export class ApplicationModule {}
