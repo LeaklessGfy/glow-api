@@ -1,10 +1,13 @@
 import { Get, Controller, Param } from "@nestjs/common";
 import { ApiUseTags, ApiResponse } from "@nestjs/swagger";
 import { WrestlerDTO } from "./dto/wrestler.dto";
+import { WrestlerService } from "./service/wrestler.service";
 
 @ApiUseTags("wrestlers")
 @Controller("wrestlers")
 export class WrestlersController {
+  constructor(private readonly service: WrestlerService) {}
+
   @ApiResponse({
     status: 200,
     description: "Find all",
@@ -13,7 +16,7 @@ export class WrestlersController {
   })
   @Get()
   findAll(): WrestlerDTO[] {
-    return [];
+    return this.service.findAll();
   }
 
   @ApiResponse({
@@ -23,6 +26,6 @@ export class WrestlersController {
   })
   @Get(":uid")
   findOne(@Param() params): WrestlerDTO {
-    return new WrestlerDTO();
+    return this.service.find(params.uid);
   }
 }
