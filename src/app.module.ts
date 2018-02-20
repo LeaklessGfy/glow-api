@@ -1,11 +1,17 @@
 import { Module } from "@nestjs/common";
-import { StatesController } from "./states.controller";
 import { ActionsController } from "./actions.controller";
 import { ModesController } from "./modes.controller";
+import { StatesController } from "./states.controller";
+import { WrestlersController } from "./wrestlers.controller";
 
 @Module({
   imports: [],
-  controllers: [StatesController, ActionsController, ModesController],
+  controllers: [
+    ActionsController,
+    ModesController,
+    StatesController,
+    WrestlersController
+  ],
   components: []
 })
 export class ApplicationModule {}
