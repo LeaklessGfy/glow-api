@@ -25,7 +25,7 @@ export class ModesController {
     type: ModeDTO
   })
   @Get(":uid")
-  findOne(@Param() params): ModeDTO {
-    return this.service.find(params.uid);
+  findOne(@Param("uid") uid: string): ModeDTO {
+    return this.service.find(uid);
   }
 }
