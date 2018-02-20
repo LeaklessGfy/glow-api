@@ -1,6 +1,6 @@
 import { Get, Controller, Param } from "@nestjs/common";
 import { ApiUseTags, ApiResponse } from "@nestjs/swagger";
-import { WrestlerDTO } from "./DTO/wrestler.dto";
+import { WrestlerDTO } from "./dto/wrestler.dto";
 
 @ApiUseTags("wrestlers")
 @Controller("wrestlers")

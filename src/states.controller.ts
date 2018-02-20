@@ -2,7 +2,7 @@ import { Get, Controller } from "@nestjs/common";
 import { ApiUseTags, ApiResponse } from "@nestjs/swagger";
 import CoreKernel from "../wlw-engine/src/kernel";
 import CoreEngine from "../wlw-engine/src/engine";
-import { StateDTO } from "./DTO/state.dto";
+import { StateDTO } from "./dto/state.dto";
 
 @ApiUseTags("states")
 @Controller("states")

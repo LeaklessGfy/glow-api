@@ -1,6 +1,6 @@
 import { Post, Controller } from "@nestjs/common";
 import { ApiUseTags, ApiResponse } from "@nestjs/swagger";
-import { StateDTO } from "./DTO/state.dto";
+import { StateDTO } from "./dto/state.dto";
 
 @ApiUseTags("actions")
 @Controller("actions")

@@ -1,6 +1,6 @@
 import { Get, Controller, Param } from "@nestjs/common";
 import { ApiUseTags, ApiResponse } from "@nestjs/swagger";
-import { ModeDTO } from "./DTO/mode.dto";
+import { ModeDTO } from "./dto/mode.dto";
 
 @ApiUseTags("modes")
 @Controller("modes")

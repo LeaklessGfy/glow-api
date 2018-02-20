@@ -4,7 +4,7 @@ import { ModeDTO } from "./mode.dto";
 import { CardDTO } from "./card.dto";
 
 export class StateDTO implements State {
-  @ApiModelProperty() viewer?: string;
+  @ApiModelProperty() viewer: string;
   @ApiModelProperty() turn: number;
   @ApiModelProperty() active: string;
   @ApiModelProperty() targets: string[];
