@@ -3,6 +3,7 @@ import { ApiModelProperty } from "@nestjs/swagger";
 
 export class CardDTO implements Card {
   @ApiModelProperty() uid: string;
+  @ApiModelProperty() actuators: string[];
   @ApiModelProperty() name: string;
   @ApiModelProperty() img: string;
   @ApiModelProperty() description: string;
@@ -17,8 +18,4 @@ export class CardDTO implements Card {
   @ApiModelProperty() reverseable: boolean;
   @ApiModelProperty() rarity: string;
   @ApiModelProperty() valid?: boolean;
-
-  preOperate(mutable, engine) {}
-  operate(mutable, engine) {}
-  postOperate(mutable, engine) {}
 }

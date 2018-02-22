@@ -4,17 +4,13 @@ import { CardDTO } from "../dto/card.dto";
 
 @Component()
 export class CardService {
-  constructor(private readonly engine: EngineService) {}
+  private readonly cards: CardDTO[] = [];
 
   findAll(uids: string[]): CardDTO[] {
-    const kernel = this.engine.getKernel();
-    if (uids.length === 0) {
-      //return kernel.getAll();
-    }
-    return uids.map(uid => kernel.get(uid));
+    return this.cards;
   }
 
   find(uid: string): CardDTO {
-    return this.engine.getKernel().get(uid);
+    return this.cards.find(card => card.uid === uid);
   }
 }

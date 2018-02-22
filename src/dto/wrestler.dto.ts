@@ -15,7 +15,7 @@ export class WrestlerDTO implements Wrestler {
   @ApiModelProperty() intensity: BarDTO;
 
   @ApiModelProperty({ isArray: true, type: String })
-  cards: string[];
+  cards: CardDTO[];
 
   @ApiModelProperty({ isArray: true, type: CardDTO })
   hand: CardDTO[];

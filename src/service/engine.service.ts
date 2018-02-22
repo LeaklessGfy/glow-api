@@ -11,12 +11,7 @@ export class EngineService {
   private readonly engine: Engine;
 
   constructor() {
-    this.kernel = new CoreKernel([
-      {
-        uid: "ddt",
-        fn: Ddt
-      }
-    ]);
+    this.kernel = new CoreKernel();
     this.engine = new CoreEngine(this.kernel);
   }
 
