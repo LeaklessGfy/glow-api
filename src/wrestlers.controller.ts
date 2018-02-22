@@ -1,5 +1,5 @@
 import { Get, Controller, Param } from "@nestjs/common";
-import { ApiUseTags, ApiResponse } from "@nestjs/swagger";
+import { ApiUseTags, ApiResponse, ApiOperation } from "@nestjs/swagger";
 import { WrestlerDTO } from "./dto/wrestler.dto";
 import { WrestlerService } from "./service/wrestler.service";
 
@@ -8,9 +8,12 @@ import { WrestlerService } from "./service/wrestler.service";
 export class WrestlersController {
   constructor(private readonly service: WrestlerService) {}
 
+  @ApiOperation({
+    title: "Find all wrestlers"
+  })
   @ApiResponse({
     status: 200,
-    description: "Find all",
+    description: "Good",
     type: WrestlerDTO,
     isArray: true
   })
@@ -19,9 +22,12 @@ export class WrestlersController {
     return this.service.findAll();
   }
 
+  @ApiOperation({
+    title: "Find one wrestler by uid"
+  })
   @ApiResponse({
     status: 200,
-    description: "Find one by uid",
+    description: "Good",
     type: WrestlerDTO
   })
   @Get(":uid")

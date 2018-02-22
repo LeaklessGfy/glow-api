@@ -1,5 +1,5 @@
 import { Get, Controller, Param } from "@nestjs/common";
-import { ApiUseTags, ApiResponse } from "@nestjs/swagger";
+import { ApiUseTags, ApiResponse, ApiOperation } from "@nestjs/swagger";
 import { ModeDTO } from "./dto/mode.dto";
 import { ModeService } from "./service/mode.service";
 
@@ -8,9 +8,12 @@ import { ModeService } from "./service/mode.service";
 export class ModesController {
   constructor(private readonly service: ModeService) {}
 
+  @ApiOperation({
+    title: "Find all modes"
+  })
   @ApiResponse({
     status: 200,
-    description: "Find all",
+    description: "Good",
     type: ModeDTO,
     isArray: true
   })
@@ -19,9 +22,12 @@ export class ModesController {
     return this.service.findAll();
   }
 
+  @ApiOperation({
+    title: "Find one card by uid"
+  })
   @ApiResponse({
     status: 200,
-    description: "Find one by uid",
+    description: "Good",
     type: ModeDTO
   })
   @Get(":uid")

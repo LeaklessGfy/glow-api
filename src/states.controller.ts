@@ -1,7 +1,5 @@
 import { Get, Controller } from "@nestjs/common";
-import { ApiUseTags, ApiResponse } from "@nestjs/swagger";
-import CoreKernel from "../wlw-engine/src/kernel";
-import CoreEngine from "../wlw-engine/src/engine";
+import { ApiUseTags, ApiResponse, ApiOperation } from "@nestjs/swagger";
 import { StateDTO } from "./dto/state.dto";
 import { EngineService } from "./service/engine.service";
 
@@ -10,9 +8,12 @@ import { EngineService } from "./service/engine.service";
 export class StatesController {
   constructor(private readonly service: EngineService) {}
 
+  @ApiOperation({
+    title: "Get the initial state"
+  })
   @ApiResponse({
     status: 200,
-    description: "Returns the initial state",
+    description: "Good",
     type: StateDTO
   })
   @Get("initial-state")

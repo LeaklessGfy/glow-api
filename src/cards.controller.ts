@@ -1,5 +1,5 @@
 import { Get, Controller, Param, Query } from "@nestjs/common";
-import { ApiUseTags, ApiResponse, ApiImplicitQuery } from "@nestjs/swagger";
+import { ApiUseTags, ApiResponse, ApiOperation } from "@nestjs/swagger";
 import { CardDTO } from "./dto/card.dto";
 import { CardService } from "./service/card.service";
 
@@ -8,22 +8,12 @@ import { CardService } from "./service/card.service";
 export class CardsController {
   constructor(private readonly service: CardService) {}
 
-  @ApiImplicitQuery({ name: "uids", required: false, type: String })
-  @ApiResponse({
-    status: 200,
-    description: "Find all by uids",
-    type: CardDTO,
-    isArray: true
+  @ApiOperation({
+    title: "Find one card by uid"
   })
-  @Get()
-  findAll(@Query() params): CardDTO[] {
-    const uids = params.uids ? JSON.parse(params.uids) : [];
-    return this.service.findAll(uids);
-  }
-
   @ApiResponse({
     status: 200,
-    description: "Find one by uid",
+    description: "Good",
     type: CardDTO
   })
   @Get(":uid")
