@@ -1,5 +1,4 @@
 import { Module } from "@nestjs/common";
-import { ActionsController } from "./actions.controller";
 import { CardsController } from "./cards.controller";
 import { ModesController } from "./modes.controller";
 import { StatesController } from "./states.controller";
@@ -12,7 +11,6 @@ import { WrestlerService } from "./service/wrestler.service";
 @Module({
   imports: [],
   controllers: [
-    ActionsController,
     CardsController,
     ModesController,
     StatesController,

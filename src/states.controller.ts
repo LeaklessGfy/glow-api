@@ -7,17 +7,4 @@ import { EngineService } from "./service/engine.service";
 @Controller("states")
 export class StatesController {
   constructor(private readonly service: EngineService) {}
-
-  @ApiOperation({
-    title: "Get the initial state"
-  })
-  @ApiResponse({
-    status: 200,
-    description: "Good",
-    type: StateDTO
-  })
-  @Get("initial-state")
-  getInitialState(): StateDTO {
-    return this.service.getEngine().getInitialState();
-  }
 }
