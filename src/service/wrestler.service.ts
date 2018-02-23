@@ -5,9 +5,9 @@ import * as W from "../../wlw-engine/src/resources/wrestlers";
 @Component()
 export class WrestlerService {
   private readonly wrestlers: WrestlerDTO[] = [
-    W.JohnCena,
-    W.RandyOrton,
-    W.TripleH
+    new W.JohnCena(),
+    new W.RandyOrton(),
+    new W.TripleH()
   ];
 
   findAll(): WrestlerDTO[] {
