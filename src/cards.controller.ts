@@ -40,7 +40,7 @@ export class CardsController {
   }
 
   @ApiOperation({
-    title: "Make cards validator"
+    title: "Make cards validation"
   })
   @ApiResponse({
     status: 200,
@@ -48,12 +48,12 @@ export class CardsController {
     type: StateDTO
   })
   @Post("validate")
-  cardDistribute(@Body() state: StateDTO) {
+  cardValidate(@Body() state: StateDTO) {
     return this.engine.getEngine().validateCards(state);
   }
 
   @ApiOperation({
-    title: "Make card play"
+    title: "Play the active card"
   })
   @ApiResponse({
     status: 200,
@@ -63,5 +63,18 @@ export class CardsController {
   @Post("play")
   cardPlay(@Body() state: StateDTO) {
     return this.engine.getEngine().playCard(state);
+  }
+
+  @ApiOperation({
+    title: "Choose a random valid active card"
+  })
+  @ApiResponse({
+    status: 200,
+    description: "Good",
+    type: StateDTO
+  })
+  @Post("random")
+  cardRandom(@Body() state: StateDTO) {
+    return this.engine.getEngine().chooseRandomCard(state);
   }
 }

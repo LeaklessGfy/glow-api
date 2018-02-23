@@ -1,7 +1,7 @@
 import Wrestler from "../../wlw-engine/src/models/wrestler";
 import { BarDTO } from "./bar.dto";
 import { CardDTO } from "./card.dto";
-import CombatStat from "../../wlw-engine/src/models/combat-stat";
+import { CombatStatDTO } from "./combat-stat.dto";
 import { ApiModelProperty } from "@nestjs/swagger";
 
 export class WrestlerDTO implements Wrestler {
@@ -26,5 +26,5 @@ export class WrestlerDTO implements Wrestler {
   @ApiModelProperty({ isArray: true, type: String })
   status: string[];
 
-  @ApiModelProperty() combat: CombatStat;
+  @ApiModelProperty() combat: CombatStatDTO;
 }

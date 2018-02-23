@@ -5,7 +5,7 @@ export class ModeDTO implements Mode {
   @ApiModelProperty() uid: string;
   @ApiModelProperty() name: string;
   @ApiModelProperty() img: string;
-  description: string;
-  numbers: Number;
+  @ApiModelProperty() description: string;
+  @ApiModelProperty() numbers: number;
   team?: boolean;
 }
