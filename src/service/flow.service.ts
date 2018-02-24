@@ -19,8 +19,8 @@ export class FlowService {
   private init(state: StateDTO): StateDTO {
     const engine = this.engine.getEngine();
     const turn = engine.newTurn(state);
-    const distribute = engine.distributeCards(turn);
-    const validate = engine.validateCards(distribute);
+    const distribute = engine.distributeHand(turn);
+    const validate = engine.validateHand(distribute);
 
     return validate;
   }

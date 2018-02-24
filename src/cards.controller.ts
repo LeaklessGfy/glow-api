@@ -50,7 +50,7 @@ export class CardsController {
   })
   @Post("distribute")
   cardDistribute(@Body() state: StateDTO) {
-    return this.engine.getEngine().distributeCards(state);
+    return this.engine.getEngine().distributeHand(state);
   }
 
   @ApiOperation({
@@ -63,7 +63,7 @@ export class CardsController {
   })
   @Post("validate")
   cardValidate(@Body() state: StateDTO) {
-    return this.engine.getEngine().validateCards(state);
+    return this.engine.getEngine().validateHand(state);
   }
 
   @ApiOperation({
