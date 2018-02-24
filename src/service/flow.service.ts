@@ -1,7 +1,7 @@
 import { Component } from "@nestjs/common";
 import { EngineService } from "./engine.service";
 import { StateDTO } from "../dto/state.dto";
-import * as STATE from "../../wlw-engine/src/consts/states";
+import * as States from "../../wlw-engine/src/consts/states";
 
 @Component()
 export class FlowService {
@@ -9,8 +9,11 @@ export class FlowService {
 
   flow(state: StateDTO): StateDTO {
     switch (state.state) {
-      case STATE.REQUEST_INIT:
+      case States.INIT:
+      case States.NEW_TURN:
         return this.init(state);
+      case States.PLAYER_ACTION:
+        return this.play(state);
       default:
         return state;
     }
@@ -23,5 +26,13 @@ export class FlowService {
     const validate = engine.validateHand(distribute);
 
     return validate;
+  }
+
+  private play(state: StateDTO): StateDTO {
+    const engine = this.engine.getEngine();
+    const play = engine.playCard(state);
+    const validate = engine.validateHand(play);
+
+    return play;
   }
 }
