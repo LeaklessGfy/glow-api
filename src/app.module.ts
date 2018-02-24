@@ -4,10 +4,7 @@ import { ModesController } from "./modes.controller";
 import { StatesController } from "./states.controller";
 import { TurnsController } from "./turns.controller";
 import { WrestlersController } from "./wrestlers.controller";
-import { CardService } from "./service/card.service";
-import { EngineService } from "./service/engine.service";
-import { ModeService } from "./service/mode.service";
-import { WrestlerService } from "./service/wrestler.service";
+import Services from "./service";
 
 @Module({
   imports: [],
@@ -18,6 +15,6 @@ import { WrestlerService } from "./service/wrestler.service";
     TurnsController,
     WrestlersController
   ],
-  components: [CardService, EngineService, ModeService, WrestlerService]
+  components: Services
 })
 export class ApplicationModule {}

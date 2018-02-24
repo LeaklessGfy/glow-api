@@ -5,7 +5,7 @@ import * as M from "../../wlw-engine/src/resources/modes";
 @Component()
 export class ModeService {
   private readonly modes: ModeDTO[] = [
-    M.Normal
+    new M.Normal()
   ];
 
   findAll(): ModeDTO[] {

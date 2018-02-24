@@ -23,6 +23,5 @@ export class CardDTO implements Card {
   @ApiModelProperty() reverseable: boolean;
   @ApiModelProperty() rarity: string;
 
-  @ApiModelProperty({ required: false })
-  valid?: boolean;
+  @ApiModelProperty() valid: boolean;
 }

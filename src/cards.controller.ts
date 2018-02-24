@@ -14,6 +14,20 @@ export class CardsController {
   ) {}
 
   @ApiOperation({
+    title: "Find all cards"
+  })
+  @ApiResponse({
+    status: 200,
+    description: "Good",
+    type: CardDTO,
+    isArray: true
+  })
+  @Get()
+  findAll(): CardDTO[] {
+    return this.service.findAll();
+  }
+
+  @ApiOperation({
     title: "Find one card by uid"
   })
   @ApiResponse({
@@ -27,7 +41,7 @@ export class CardsController {
   }
 
   @ApiOperation({
-    title: "Make cards distribution"
+    title: "Distribute hand for all players"
   })
   @ApiResponse({
     status: 200,
@@ -40,7 +54,7 @@ export class CardsController {
   }
 
   @ApiOperation({
-    title: "Make cards validation"
+    title: "Validate hand for all players"
   })
   @ApiResponse({
     status: 200,

@@ -1,12 +1,14 @@
 import { Component } from "@nestjs/common";
-import { EngineService } from "./engine.service";
 import { CardDTO } from "../dto/card.dto";
+import * as C from "../../wlw-engine/src/resources/cards";
 
 @Component()
 export class CardService {
-  private readonly cards: CardDTO[] = [];
+  private readonly cards: CardDTO[] = [
+    new C.Ddt()
+  ];
 
-  findAll(uids: string[]): CardDTO[] {
+  findAll(): CardDTO[] {
     return this.cards;
   }
 

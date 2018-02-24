@@ -8,14 +8,14 @@ export class WrestlerDTO implements Wrestler {
   @ApiModelProperty() uid: string;
   @ApiModelProperty() name: string;
   @ApiModelProperty() img: string;
-  @ApiModelProperty() gender: string;
-  @ApiModelProperty() category: string;
+  @ApiModelProperty() gender: number;
+  @ApiModelProperty() category: number;
   @ApiModelProperty() health: BarDTO;
   @ApiModelProperty() stamina: BarDTO;
   @ApiModelProperty() intensity: BarDTO;
 
-  @ApiModelProperty({ isArray: true, type: String })
-  cards: CardDTO[];
+  @ApiModelProperty({ isArray: true, type: CardDTO })
+  deck: CardDTO[];
 
   @ApiModelProperty({ isArray: true, type: CardDTO })
   hand: CardDTO[];

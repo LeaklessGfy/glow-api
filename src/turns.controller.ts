@@ -9,7 +9,7 @@ export class TurnsController {
   constructor(private readonly service: EngineService) {}
 
   @ApiOperation({
-    title: "Make new turn"
+    title: "New turn"
   })
   @ApiResponse({
     status: 200,

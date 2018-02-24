@@ -16,7 +16,7 @@ export class StateDTO implements State {
   next: string[];
 
   @ApiModelProperty() players: PlayersDTO;
-  @ApiModelProperty() card: CardDTO;
+  @ApiModelProperty() card: number;
   @ApiModelProperty() mode: ModeDTO;
-  reversed?: boolean;
+  @ApiModelProperty() state: number;
 }
