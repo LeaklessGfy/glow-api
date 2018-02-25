@@ -1,4 +1,4 @@
-import { Post, Controller, Body } from "@nestjs/common";
+import { Post, Controller, Body, Res, HttpStatus } from "@nestjs/common";
 import { ApiUseTags, ApiResponse, ApiOperation } from "@nestjs/swagger";
 import { StateDTO } from "./dto/state.dto";
 import { FlowService } from "./service/flow.service";
@@ -17,7 +17,11 @@ export class StatesController {
     type: StateDTO
   })
   @Post("flow")
-  flow(@Body() state: StateDTO): StateDTO {
-    return this.flowService.flow(state);
+  flow(@Body() state: StateDTO, @Res() res): StateDTO {
+    try {
+      return this.flowService.flow(state);
+    } catch (error) {
+      res.status(HttpStatus.BAD_REQUEST).json({ error: error.message });
+    }
   }
 }
