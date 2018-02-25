@@ -10,8 +10,9 @@ export class FlowService {
   flow(state: StateDTO): StateDTO {
     switch (state.state) {
       case States.INIT:
-      case States.NEW_TURN:
         return this.init(state);
+      case States.NEW_TURN:
+        return this.new(state);
       case States.PLAYER_ACTION:
         return this.play(state);
       default:
@@ -21,18 +22,31 @@ export class FlowService {
 
   private init(state: StateDTO): StateDTO {
     const engine = this.engine.getEngine();
-    const turn = engine.newTurn(state);
-    const distribute = engine.distributeHands(turn);
-    const validate = engine.validateHands(distribute);
+    let newState = engine.newTurn(state);
+    newState = engine.distributeHands(newState);
+    newState = engine.validateHands(newState);
 
-    return validate;
+    return newState;
+  }
+
+  private new(state: StateDTO): StateDTO {
+    const engine = this.engine.getEngine();
+    const next = state.next.length;
+
+    let newState = engine.newTurn(state);
+    if (next === 0) {
+      newState = engine.distributeHands(newState);
+    }
+    newState = engine.validateHands(newState);
+
+    return newState;
   }
 
   private play(state: StateDTO): StateDTO {
     const engine = this.engine.getEngine();
-    const play = engine.playCard(state);
-    const validate = engine.validateHands(play);
+    let newState = engine.playCard(state);
+    newState = engine.validateHands(newState);
 
-    return play;
+    return newState;
   }
 }
