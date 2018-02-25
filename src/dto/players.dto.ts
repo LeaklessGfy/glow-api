@@ -11,4 +11,6 @@ export class PlayersDTO implements Players {
 
   @ApiModelProperty({ required: false })
   CPU1?: WrestlerDTO;
+
+  [index: string]: WrestlerDTO;
 }

@@ -22,8 +22,8 @@ export class FlowService {
   private init(state: StateDTO): StateDTO {
     const engine = this.engine.getEngine();
     const turn = engine.newTurn(state);
-    const distribute = engine.distributeHand(turn);
-    const validate = engine.validateHand(distribute);
+    const distribute = engine.distributeHands(turn);
+    const validate = engine.validateHands(distribute);
 
     return validate;
   }
@@ -31,7 +31,7 @@ export class FlowService {
   private play(state: StateDTO): StateDTO {
     const engine = this.engine.getEngine();
     const play = engine.playCard(state);
-    const validate = engine.validateHand(play);
+    const validate = engine.validateHands(play);
 
     return play;
   }
