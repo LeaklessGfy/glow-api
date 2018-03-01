@@ -4,9 +4,7 @@ import * as C from "../../wlw-engine/src/resources/cards";
 
 @Component()
 export class CardService {
-  private readonly cards: CardDTO[] = [
-    new C.Ddt()
-  ];
+  private readonly cards: CardDTO[] = [new C.Ddt()];
 
   findAll(): CardDTO[] {
     return this.cards;

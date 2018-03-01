@@ -18,10 +18,16 @@ export class CardDTO implements Card {
   damage?: number;
 
   @ApiModelProperty({ isArray: true, type: String })
-  targets: string[];
+  targets: number[];
 
-  @ApiModelProperty() reverseable: boolean;
-  @ApiModelProperty() rarity: string;
+  @ApiModelProperty() rarity: number;
 
-  @ApiModelProperty() valid: boolean;
+  @ApiModelProperty({ required: false })
+  blockable?: boolean;
+
+  @ApiModelProperty({ required: false })
+  reverseable?: boolean;
+
+  @ApiModelProperty({ required: false })
+  valid?: boolean;
 }

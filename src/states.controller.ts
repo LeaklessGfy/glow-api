@@ -1,12 +1,13 @@
 import { Post, Controller, Body, Res, HttpStatus } from "@nestjs/common";
 import { ApiUseTags, ApiResponse, ApiOperation } from "@nestjs/swagger";
 import { StateDTO } from "./dto/state.dto";
-import { FlowService } from "./service/flow.service";
+import EngineFacade from "../wlw-engine/src/engine.facade";
+import { EngineService } from "./service/engine.service";
 
 @ApiUseTags("states")
 @Controller("states")
 export class StatesController {
-  constructor(private readonly flowService: FlowService) {}
+  constructor(private readonly engine: EngineService) {}
 
   @ApiOperation({
     title: "Flow"
@@ -18,8 +19,9 @@ export class StatesController {
   })
   @Post("flow")
   flow(@Body() state: StateDTO, @Res() res): StateDTO {
+    const facade = new EngineFacade(this.engine.getEngine());
     try {
-      return this.flowService.flow(state);
+      return facade.go(state);
     } catch (error) {
       res.status(HttpStatus.BAD_REQUEST).json({ error: error.message });
     }

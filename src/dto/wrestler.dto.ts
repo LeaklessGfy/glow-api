@@ -24,7 +24,7 @@ export class WrestlerDTO implements Wrestler {
   dead: CardDTO[];
 
   @ApiModelProperty({ isArray: true, type: String })
-  status: string[];
+  status: number[];
 
   @ApiModelProperty() combat: CombatStatDTO;
 }

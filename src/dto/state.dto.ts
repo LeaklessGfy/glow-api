@@ -3,6 +3,7 @@ import { ApiModelProperty } from "@nestjs/swagger";
 import { ModeDTO } from "./mode.dto";
 import { CardDTO } from "./card.dto";
 import { PlayersDTO } from "./players.dto";
+import { RecordDTO } from "./record.dto";
 
 export class StateDTO implements State {
   @ApiModelProperty() viewer: string;
@@ -19,4 +20,7 @@ export class StateDTO implements State {
   @ApiModelProperty() card: number;
   @ApiModelProperty() mode: ModeDTO;
   @ApiModelProperty() state: number;
+
+  @ApiModelProperty({ isArray: true, type: RecordDTO })
+  records: RecordDTO[];
 }

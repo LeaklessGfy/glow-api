@@ -89,6 +89,6 @@ export class CardsController {
   })
   @Post("random")
   cardRandom(@Body() state: StateDTO) {
-    return this.engine.getEngine().chooseRandomCard(state);
+    return this.engine.getEngine().randomCard(state);
   }
 }
