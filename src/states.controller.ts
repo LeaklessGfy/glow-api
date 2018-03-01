@@ -18,10 +18,10 @@ export class StatesController {
     type: StateDTO
   })
   @Post("flow")
-  flow(@Body() state: StateDTO, @Res() res): StateDTO {
+  flow(@Body() state: StateDTO, @Res() res) {
     const facade = new EngineFacade(this.engine.getEngine());
     try {
-      return facade.go(state);
+      res.status(HttpStatus.OK).json(facade.go(state));
     } catch (error) {
       res.status(HttpStatus.BAD_REQUEST).json({ error: error.message });
     }
