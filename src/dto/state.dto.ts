@@ -19,7 +19,6 @@ export class StateDTO implements State {
   @ApiModelProperty() players: PlayersDTO;
   @ApiModelProperty() card: number;
   @ApiModelProperty() mode: ModeDTO;
-  @ApiModelProperty() state: number;
 
   @ApiModelProperty({ isArray: true, type: RecordDTO })
   records: RecordDTO[];
