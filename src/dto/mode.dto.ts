@@ -7,5 +7,6 @@ export class ModeDTO implements Mode {
   @ApiModelProperty() img: string;
   @ApiModelProperty() description: string;
   @ApiModelProperty() numbers: number;
-  team?: boolean;
+  @ApiModelProperty() team: boolean;
+  @ApiModelProperty() winning: string;
 }

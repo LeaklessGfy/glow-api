@@ -22,4 +22,7 @@ export class StateDTO implements State {
 
   @ApiModelProperty({ isArray: true, type: RecordDTO })
   records: RecordDTO[];
+
+  @ApiModelProperty({ required: false })
+  winner: string;
 }
