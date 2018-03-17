@@ -1,4 +1,4 @@
-import { Post, Controller, Body } from "@nestjs/common";
+import { Post, Controller, Body, Res, HttpStatus } from "@nestjs/common";
 import { ApiUseTags, ApiResponse, ApiOperation } from "@nestjs/swagger";
 import { StateDTO } from "./dto/state.dto";
 import { EngineService } from "./service/engine.service";
@@ -6,7 +6,7 @@ import { EngineService } from "./service/engine.service";
 @ApiUseTags("turns")
 @Controller("turns")
 export class TurnsController {
-  constructor(private readonly service: EngineService) {}
+  constructor(private readonly engine: EngineService) {}
 
   @ApiOperation({
     title: "New turn"
@@ -17,7 +17,12 @@ export class TurnsController {
     type: StateDTO
   })
   @Post("new")
-  newTurn(@Body() state: StateDTO) {
-    return this.service.getEngine().newTurn(state);
+  newTurn(@Body() state: StateDTO, @Res() res) {
+    try {
+      const nState = this.engine.getEngine().newTurn(state);
+      res.status(HttpStatus.OK).json(nState);
+    } catch (error) {
+      res.status(HttpStatus.BAD_REQUEST).json({ error: error.message });
+    }
   }
 }

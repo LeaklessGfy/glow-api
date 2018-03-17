@@ -1,4 +1,13 @@
-import { Get, Controller, Param, Query, Post, Body } from "@nestjs/common";
+import {
+  Get,
+  Controller,
+  Param,
+  Query,
+  Post,
+  Body,
+  Res,
+  HttpStatus
+} from "@nestjs/common";
 import { ApiUseTags, ApiResponse, ApiOperation } from "@nestjs/swagger";
 import { CardService } from "./service/card.service";
 import { EngineService } from "./service/engine.service";
@@ -41,32 +50,6 @@ export class CardsController {
   }
 
   @ApiOperation({
-    title: "Distribute hand for all players"
-  })
-  @ApiResponse({
-    status: 200,
-    description: "Good",
-    type: StateDTO
-  })
-  @Post("distribute")
-  cardDistribute(@Body() state: StateDTO) {
-    return this.engine.getEngine().distributeHands(state);
-  }
-
-  @ApiOperation({
-    title: "Validate hand for all players"
-  })
-  @ApiResponse({
-    status: 200,
-    description: "Good",
-    type: StateDTO
-  })
-  @Post("validate")
-  cardValidate(@Body() state: StateDTO) {
-    return this.engine.getEngine().validateHands(state);
-  }
-
-  @ApiOperation({
     title: "Play the active card"
   })
   @ApiResponse({
@@ -75,20 +58,12 @@ export class CardsController {
     type: StateDTO
   })
   @Post("play")
-  cardPlay(@Body() state: StateDTO) {
-    return this.engine.getEngine().playCard(state);
-  }
-
-  @ApiOperation({
-    title: "Choose a random valid active card"
-  })
-  @ApiResponse({
-    status: 200,
-    description: "Good",
-    type: StateDTO
-  })
-  @Post("random")
-  cardRandom(@Body() state: StateDTO) {
-    return this.engine.getEngine().randomCard(state);
+  cardPlay(@Body() state: StateDTO, @Res() res) {
+    try {
+      const nState = this.engine.getEngine().playCard(state);
+      res.status(HttpStatus.OK).json(nState);
+    } catch (error) {
+      res.status(HttpStatus.BAD_REQUEST).json({ error: error.message });
+    }
   }
 }
