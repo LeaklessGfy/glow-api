@@ -1,7 +1,7 @@
 import { Component } from "@nestjs/common";
 import Engine from "../../wlw-engine/src/models/engine";
 import CoreEngine from "../../wlw-engine/src/engine";
-import * as Strategies from "../../wlw-engine/src/resources/strategies";
+import * as Strategies from "../../wlw-engine/src/strategies/core";
 import * as Actuators from "../../wlw-engine/src/resources/actuators";
 import Mutator from "../../wlw-engine/src/mutator";
 
@@ -11,17 +11,15 @@ export class EngineService {
 
   constructor() {
     const mutator = new Mutator(
-      new Strategies.Distributor(),
-      new Strategies.Validator(),
-      new Strategies.Operator([
+      new Strategies.CardStrategy(),
+      new Strategies.OperatorStrategy([
         new Actuators.DamageActuator(),
         new Actuators.MirrorActuator(),
         new Actuators.PinActuator(),
         new Actuators.RestActuator(),
         new Actuators.TimewrapActuator()
       ]),
-      new Strategies.CPU(),
-      new Strategies.Winning()
+      new Strategies.CPUStrategy()
     );
     this.engine = new CoreEngine(mutator);
   }
