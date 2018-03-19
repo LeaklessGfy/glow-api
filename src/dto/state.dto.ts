@@ -14,6 +14,9 @@ export class StateDTO implements State {
   targets: string[];
 
   @ApiModelProperty({ isArray: true, type: String })
+  baseNext: string[];
+
+  @ApiModelProperty({ isArray: true, type: String })
   next: string[];
 
   @ApiModelProperty() players: PlayersDTO;
