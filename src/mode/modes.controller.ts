@@ -1,12 +1,12 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiUseTags } from '@nestjs/swagger';
-import { ModeDTO } from './dto/mode.dto';
-import { ModeService } from './mode.service';
+import { ModeDTO } from './data/mode.dto';
+import { ModesService } from './modes.service';
 
 @ApiUseTags('modes')
 @Controller('modes')
 export class ModesController {
-  constructor(private readonly service: ModeService) {}
+  constructor(private readonly service: ModesService) {}
 
   @ApiOperation({
     title: 'Find all modes',
@@ -18,7 +18,7 @@ export class ModesController {
     isArray: true,
   })
   @Get()
-  findAll(): ModeDTO[] {
+  findAll(): Promise<ModeDTO[]> {
     return this.service.findAll();
   }
 
@@ -31,7 +31,7 @@ export class ModesController {
     type: ModeDTO,
   })
   @Get(':uid')
-  findOne(@Param('uid') uid: string): ModeDTO {
+  findOne(@Param('uid') uid: string): Promise<ModeDTO> {
     return this.service.find(uid);
   }
 }

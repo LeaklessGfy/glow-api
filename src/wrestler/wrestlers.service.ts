@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { WrestlerDTO } from './dto/wrestler.dto';
+import { WrestlerDTO } from './data/wrestler.dto';
 import { Model } from 'mongoose';
 
 @Injectable()
-export class WrestlerService {
+export class WrestlersService {
   private readonly wrestlers: WrestlerDTO[] = [];
 
   constructor(

@@ -6,13 +6,10 @@ import { CrowdDTO } from './dto/crowd.dto';
 import { ModeDTO } from './dto/mode.dto';
 import { MoralDTO } from './dto/moral.dto';
 import { StateDTO } from './dto/state.dto';
-import { WrestlerDTO } from './dto/wrestler.dto';
 
 export const ActionSchema = mongoose.Schema(ActionDTO);
 export const BarSchema = mongoose.Schema(BarDTO);
 export const CombatSchema = mongoose.Schema(CombatDTO);
 export const CrowdSchema = mongoose.Schema(CrowdDTO);
-export const ModeSchema = mongoose.Schema(ModeDTO);
 export const MoralSchema = mongoose.Schema(MoralDTO);
 export const StateSchema = mongoose.Schema(StateDTO);
-export const WrestlerSchema = mongoose.Schema(WrestlerDTO);

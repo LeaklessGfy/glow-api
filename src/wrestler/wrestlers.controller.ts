@@ -1,12 +1,12 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiUseTags } from '@nestjs/swagger';
-import { WrestlerDTO } from './dto/wrestler.dto';
-import { WrestlerService } from './wrestler.service';
+import { WrestlerDTO } from './data/wrestler.dto';
+import { WrestlersService } from './wrestlers.service';
 
 @ApiUseTags('wrestlers')
 @Controller('wrestlers')
 export class WrestlersController {
-  constructor(private readonly service: WrestlerService) {}
+  constructor(private readonly service: WrestlersService) {}
 
   @ApiOperation({
     title: 'Find all wrestlers',
