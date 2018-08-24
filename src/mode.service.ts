@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { ModeDTO } from '../dto/mode.dto';
+import { ModeDTO } from './mode.dto';
 
 @Injectable()
 export class ModeService {

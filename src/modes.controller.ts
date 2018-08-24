@@ -1,7 +1,7 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiUseTags } from '@nestjs/swagger';
-import { ModeDTO } from './dto/mode.dto';
-import { ModeService } from './service/mode.service';
+import { ModeDTO } from './mode.dto';
+import { ModeService } from './mode.service';
 
 @ApiUseTags('modes')
 @Controller('modes')

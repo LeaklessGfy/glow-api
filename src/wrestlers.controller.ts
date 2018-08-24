@@ -1,7 +1,7 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiUseTags } from '@nestjs/swagger';
-import { WrestlerDTO } from './dto/wrestler.dto';
-import { WrestlerService } from './service/wrestler.service';
+import { WrestlerDTO } from './wrestler.dto';
+import { WrestlerService } from './wrestler.service';
 
 @ApiUseTags('wrestlers')
 @Controller('wrestlers')
@@ -18,7 +18,8 @@ export class WrestlersController {
     isArray: true,
   })
   @Get()
-  findAll(): Promise<WrestlerDTO[]> {
+  findAll() {
+    console.log(this.service.findAll().then(r => console.log(r)));
     return this.service.findAll();
   }
 

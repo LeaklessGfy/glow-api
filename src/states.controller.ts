@@ -1,7 +1,7 @@
 import { Body, Controller, HttpStatus, Post, Res } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiUseTags } from '@nestjs/swagger';
-import { StateDTO } from './dto/state.dto';
-import { EngineService } from './service/engine.service';
+import { StateDTO } from './state.dto';
+import { EngineService } from './engine.service';
 
 @ApiUseTags('states')
 @Controller('states')

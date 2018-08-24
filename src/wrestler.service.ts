@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { WrestlerDTO } from '../dto/wrestler.dto';
+import { WrestlerDTO } from './wrestler.dto';
 import { Model } from 'mongoose';
 
 @Injectable()
@@ -8,11 +8,12 @@ export class WrestlerService {
   private readonly wrestlers: WrestlerDTO[] = [];
 
   constructor(
-    @InjectModel('Wrestler') private readonly wrestlerModel: Model<WrestlerDTO>,
+    @InjectModel('wrestler') private readonly wrestlerModel: Model<WrestlerDTO>,
   ) {}
 
-  async findAll(): Promise<WrestlerDTO[]> {
-    return await this.wrestlerModel.find().exec();
+  async findAll() {
+    var d = await this.wrestlerModel.find().exec();
+    return await d;
   }
 
   find(uid: string): WrestlerDTO {
