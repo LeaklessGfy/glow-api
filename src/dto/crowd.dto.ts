@@ -1,8 +1,9 @@
 import { ApiModelProperty } from '@nestjs/swagger';
 
-export class BarDTO {
+export class CrowdDTO {
   @ApiModelProperty()
-  val: number;
+  reaction: number;
+
   @ApiModelProperty()
-  max: number;
+  intensity: number;
 }

@@ -1,10 +1,9 @@
-import { Component } from "@nestjs/common";
-import { ModeDTO } from "../dto/mode.dto";
-import * as M from "../../wlw-engine/src/resources/modes";
+import { Injectable } from '@nestjs/common';
+import { ModeDTO } from '../dto/mode.dto';
 
-@Component()
+@Injectable()
 export class ModeService {
-  private readonly modes: ModeDTO[] = [new M.Normal()];
+  private readonly modes: ModeDTO[] = [];
 
   findAll(): ModeDTO[] {
     return this.modes;

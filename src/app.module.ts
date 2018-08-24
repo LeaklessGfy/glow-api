@@ -1,20 +1,13 @@
-import { Module } from "@nestjs/common";
-import { CardsController } from "./cards.controller";
-import { ModesController } from "./modes.controller";
-import { StatesController } from "./states.controller";
-import { TurnsController } from "./turns.controller";
-import { WrestlersController } from "./wrestlers.controller";
-import Services from "./service";
+import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
+import { ModesController } from './modes.controller';
+import Services from './service';
+import { StatesController } from './states.controller';
+import { WrestlersController } from './wrestlers.controller';
 
 @Module({
-  imports: [],
-  controllers: [
-    CardsController,
-    ModesController,
-    StatesController,
-    TurnsController,
-    WrestlersController
-  ],
-  components: Services
+  imports: [MongooseModule.forRoot('mongodb://localhost/nest')],
+  controllers: [ModesController, StatesController, WrestlersController],
+  providers: Services,
 })
 export class ApplicationModule {}

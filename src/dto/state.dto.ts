@@ -1,14 +1,16 @@
-import State from "../../wlw-engine/src/models/state";
-import { ApiModelProperty } from "@nestjs/swagger";
-import { ModeDTO } from "./mode.dto";
-import { CardDTO } from "./card.dto";
-import { PlayersDTO } from "./players.dto";
-import { RecordDTO } from "./record.dto";
+import { ApiModelProperty } from '@nestjs/swagger';
+import { ModeDTO } from './mode.dto';
+import { WrestlerDTO } from './wrestler.dto';
 
-export class StateDTO implements State {
-  @ApiModelProperty() viewer: string;
-  @ApiModelProperty() turn: number;
-  @ApiModelProperty() active: string;
+export class StateDTO {
+  @ApiModelProperty()
+  viewer: string;
+
+  @ApiModelProperty()
+  turn: number;
+
+  @ApiModelProperty()
+  active: string;
 
   @ApiModelProperty({ isArray: true, type: String })
   targets: string[];
@@ -16,11 +18,15 @@ export class StateDTO implements State {
   @ApiModelProperty({ isArray: true, type: String })
   next: string[];
 
-  @ApiModelProperty() players: PlayersDTO;
-  @ApiModelProperty() card: number;
-  @ApiModelProperty() mode: ModeDTO;
-  @ApiModelProperty() state: number;
+  @ApiModelProperty({ isArray: true, type: WrestlerDTO })
+  players: WrestlerDTO[];
 
-  @ApiModelProperty({ isArray: true, type: RecordDTO })
-  records: RecordDTO[];
+  @ApiModelProperty()
+  card: number;
+
+  @ApiModelProperty()
+  mode: ModeDTO;
+
+  @ApiModelProperty()
+  state: number;
 }

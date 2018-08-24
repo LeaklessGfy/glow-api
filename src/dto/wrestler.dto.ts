@@ -1,30 +1,47 @@
-import Wrestler from "../../wlw-engine/src/models/wrestler";
-import { BarDTO } from "./bar.dto";
-import { CardDTO } from "./card.dto";
-import { CombatStatDTO } from "./combat-stat.dto";
-import { ApiModelProperty } from "@nestjs/swagger";
+import { ApiModelProperty } from '@nestjs/swagger';
+import { ActionDTO } from './action.dto';
+import { BarDTO } from './bar.dto';
+import { CombatDTO } from './combat.dto';
+import { CrowdDTO } from './crowd.dto';
+import { MoralDTO } from './moral.dto';
 
-export class WrestlerDTO implements Wrestler {
-  @ApiModelProperty() uid: string;
-  @ApiModelProperty() name: string;
-  @ApiModelProperty() img: string;
-  @ApiModelProperty() gender: number;
-  @ApiModelProperty() category: number;
-  @ApiModelProperty() health: BarDTO;
-  @ApiModelProperty() stamina: BarDTO;
-  @ApiModelProperty() intensity: BarDTO;
+export class WrestlerDTO {
+  @ApiModelProperty()
+  uid: string;
 
-  @ApiModelProperty({ isArray: true, type: CardDTO })
-  deck: CardDTO[];
+  @ApiModelProperty()
+  name: string;
 
-  @ApiModelProperty({ isArray: true, type: CardDTO })
-  hand: CardDTO[];
+  @ApiModelProperty()
+  image: string;
 
-  @ApiModelProperty({ isArray: true, type: CardDTO })
-  dead: CardDTO[];
+  @ApiModelProperty()
+  gender: number;
+
+  @ApiModelProperty()
+  category: number;
+
+  @ApiModelProperty()
+  health: BarDTO;
+
+  @ApiModelProperty()
+  stamina: BarDTO;
+
+  @ApiModelProperty()
+  intensity: BarDTO;
+
+  @ApiModelProperty({ isArray: true, type: ActionDTO })
+  actions: ActionDTO[];
+
+  @ApiModelProperty()
+  combat: CombatDTO;
+
+  @ApiModelProperty()
+  moral: MoralDTO;
+
+  @ApiModelProperty()
+  crowd: CrowdDTO;
 
   @ApiModelProperty({ isArray: true, type: String })
   status: number[];
-
-  @ApiModelProperty() combat: CombatStatDTO;
 }

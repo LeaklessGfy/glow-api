@@ -1,17 +1,18 @@
-import { Component } from "@nestjs/common";
-import { WrestlerDTO } from "../dto/wrestler.dto";
-import * as W from "../../wlw-engine/src/resources/wrestlers";
+import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { WrestlerDTO } from '../dto/wrestler.dto';
+import { Model } from 'mongoose';
 
-@Component()
+@Injectable()
 export class WrestlerService {
-  private readonly wrestlers: WrestlerDTO[] = [
-    new W.JohnCena(),
-    new W.RandyOrton(),
-    new W.TripleH()
-  ];
+  private readonly wrestlers: WrestlerDTO[] = [];
 
-  findAll(): WrestlerDTO[] {
-    return this.wrestlers;
+  constructor(
+    @InjectModel('Wrestler') private readonly wrestlerModel: Model<WrestlerDTO>,
+  ) {}
+
+  async findAll(): Promise<WrestlerDTO[]> {
+    return await this.wrestlerModel.find().exec();
   }
 
   find(uid: string): WrestlerDTO {
