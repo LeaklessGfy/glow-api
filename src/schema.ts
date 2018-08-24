@@ -1,12 +1,12 @@
 import * as mongoose from 'mongoose';
-import { ActionDTO } from './action.dto';
-import { BarDTO } from './bar.dto';
-import { CombatDTO } from './combat.dto';
-import { CrowdDTO } from './crowd.dto';
-import { ModeDTO } from './mode.dto';
-import { MoralDTO } from './moral.dto';
-import { StateDTO } from './state.dto';
-import { WrestlerDTO } from './wrestler.dto';
+import { ActionDTO } from './dto/action.dto';
+import { BarDTO } from './dto/bar.dto';
+import { CombatDTO } from './dto/combat.dto';
+import { CrowdDTO } from './dto/crowd.dto';
+import { ModeDTO } from './dto/mode.dto';
+import { MoralDTO } from './dto/moral.dto';
+import { StateDTO } from './dto/state.dto';
+import { WrestlerDTO } from './dto/wrestler.dto';
 
 export const ActionSchema = mongoose.Schema(ActionDTO);
 export const BarSchema = mongoose.Schema(BarDTO);

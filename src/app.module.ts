@@ -1,11 +1,9 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ModesController } from './modes.controller';
-import { StatesController } from './states.controller';
 import { WrestlersController } from './wrestlers.controller';
 import { WrestlerService } from './wrestler.service';
 import { ModeService } from './mode.service';
-import { EngineService } from './engine.service';
 import { WrestlerSchema } from './schema';
 
 @Module({
@@ -13,9 +11,11 @@ import { WrestlerSchema } from './schema';
     MongooseModule.forRoot('mongodb://localhost/nest', {
       useNewUrlParser: true,
     }),
-    MongooseModule.forFeature([{ name: 'wrestler', schema: WrestlerSchema }]),
+    MongooseModule.forFeature([
+      { name: 'Wrestler', schema: WrestlerSchema, collection: 'wrestler' },
+    ]),
   ],
-  controllers: [ModesController, StatesController, WrestlersController],
-  providers: [EngineService, ModeService, WrestlerService],
+  controllers: [ModesController, WrestlersController],
+  providers: [ModeService, WrestlerService],
 })
 export class ApplicationModule {}
