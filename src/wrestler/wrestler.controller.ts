@@ -1,5 +1,6 @@
-import { Controller, Get, Param } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiUseTags } from '@nestjs/swagger';
+import { Controller, Get, Param } from '@nestjs/common';
+
 import { WrestlerDTO } from './data/wrestler.dto';
 import { WrestlerService } from './wrestler.service';
 

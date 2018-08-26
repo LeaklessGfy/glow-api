@@ -1,7 +1,8 @@
-import { Controller, Get, Param } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiUseTags } from '@nestjs/swagger';
-import { ArenaService } from './arena.service';
+import { Controller, Get, Param } from '@nestjs/common';
+
 import { ArenaDTO } from './data/arena.dto';
+import { ArenaService } from './arena.service';
 
 @ApiUseTags('arenas')
 @Controller('arenas')

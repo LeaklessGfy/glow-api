@@ -1,7 +1,8 @@
-import { Controller, Get, Param } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiUseTags } from '@nestjs/swagger';
-import { UserService } from './user.service';
+import { Controller, Get, Param } from '@nestjs/common';
+
 import { UserDTO } from './data/user.dto';
+import { UserService } from './user.service';
 
 @ApiUseTags('users')
 @Controller('users')

@@ -1,11 +1,12 @@
-import { ApiModelProperty } from '@nestjs/swagger';
 import {
   Entity,
-  PrimaryGeneratedColumn,
-  ManyToOne,
-  ManyToMany,
   JoinTable,
+  ManyToMany,
+  ManyToOne,
+  PrimaryGeneratedColumn,
 } from 'typeorm';
+
+import { ApiModelProperty } from '@nestjs/swagger';
 import { ModeDTO } from '../../mode/data/mode.dto';
 import { WrestlerDTO } from '../../wrestler/data/wrestler.dto';
 

@@ -1,5 +1,6 @@
-import { ApiModelProperty } from '@nestjs/swagger';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+
+import { ApiModelProperty } from '@nestjs/swagger';
 
 @Entity({ name: 'user' })
 export class UserDTO {

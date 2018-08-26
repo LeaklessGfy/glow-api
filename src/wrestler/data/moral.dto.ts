@@ -1,5 +1,6 @@
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+
 import { ApiModelProperty } from '@nestjs/swagger';
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ name: 'moral' })
 export class MoralDTO {

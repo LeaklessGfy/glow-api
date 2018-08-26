@@ -1,8 +1,8 @@
-import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { ArenaController } from './arena.controller';
 import { ArenaDTO } from './data/arena.dto';
 import { ArenaService } from './arena.service';
-import { ArenaController } from './arena.controller';
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [TypeOrmModule.forFeature([ArenaDTO])],

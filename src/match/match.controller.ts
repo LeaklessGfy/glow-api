@@ -1,7 +1,8 @@
-import { Controller, Get, Param } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiUseTags } from '@nestjs/swagger';
-import { MatchService } from './match.service';
+import { Controller, Get, Param } from '@nestjs/common';
+
 import { MatchDTO } from './data/match.dto';
+import { MatchService } from './match.service';
 
 @ApiUseTags('matches')
 @Controller('matches')

@@ -1,11 +1,11 @@
-import { ApiModelProperty } from '@nestjs/swagger';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+
 import { ActionDTO } from './action.dto';
+import { ApiModelProperty } from '@nestjs/swagger';
 import { BarDTO } from './bar.dto';
 import { CombatDTO } from './combat.dto';
 import { CrowdDTO } from './crowd.dto';
 import { MoralDTO } from './moral.dto';
-
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 
 @Entity({ name: 'wrestler' })
 export class WrestlerDTO {

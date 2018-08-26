@@ -1,6 +1,7 @@
-import { Injectable } from '@nestjs/common';
+import { InsertResult, Repository } from 'typeorm';
+
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, InsertResult } from 'typeorm';
+import { Injectable } from '@nestjs/common';
 import { MatchDTO } from './data/match.dto';
 
 @Injectable()

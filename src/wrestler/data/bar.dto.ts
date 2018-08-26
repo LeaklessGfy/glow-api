@@ -1,5 +1,6 @@
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+
 import { ApiModelProperty } from '@nestjs/swagger';
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity({ name: 'bar' })
 export class BarDTO {

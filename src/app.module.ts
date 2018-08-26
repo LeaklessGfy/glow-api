@@ -1,9 +1,8 @@
-import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
-
 import { ArenaModule } from './arena/arena.module';
 import { MatchModule } from './match/match.module';
 import { ModeModule } from './mode/mode.module';
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
 import { WrestlerModule } from './wrestler/wrestler.module';
 
@@ -14,7 +13,7 @@ import { WrestlerModule } from './wrestler/wrestler.module';
     MatchModule,
     ModeModule,
     UserModule,
-    WrestlerModule
-  ]
+    WrestlerModule,
+  ],
 })
 export class ApplicationModule {}

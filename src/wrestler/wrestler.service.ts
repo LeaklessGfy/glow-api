@@ -1,7 +1,7 @@
-import { Injectable } from '@nestjs/common';
-import { WrestlerDTO } from './data/wrestler.dto';
 import { InjectRepository } from '@nestjs/typeorm';
+import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
+import { WrestlerDTO } from './data/wrestler.dto';
 
 @Injectable()
 export class WrestlerService {
