@@ -4,21 +4,21 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
 @Injectable()
-export class WrestlersService {
+export class WrestlerService {
   constructor(
     @InjectRepository(WrestlerDTO)
-    private readonly repo: Repository<WrestlerDTO>
+    private readonly repo: Repository<WrestlerDTO>,
   ) {}
 
   async findAll(): Promise<WrestlerDTO[]> {
     return await this.repo.find({
-      relations: ['health', 'stamina', 'intensity']
+      relations: ['health', 'stamina', 'intensity'],
     });
   }
 
   async find(id: number): Promise<WrestlerDTO> {
     return await this.repo.findOne(id, {
-      relations: ['health', 'stamina', 'intensity']
+      relations: ['health', 'stamina', 'intensity'],
     });
   }
 
@@ -26,8 +26,8 @@ export class WrestlersService {
     return await this.repo.findOne(
       { uid },
       {
-        relations: ['health', 'stamina', 'intensity']
-      }
+        relations: ['health', 'stamina', 'intensity'],
+      },
     );
   }
 }

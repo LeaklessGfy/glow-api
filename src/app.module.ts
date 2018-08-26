@@ -1,8 +1,20 @@
-import { Module } from "@nestjs/common";
-import { TypeOrmModule } from "@nestjs/typeorm";
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { ModesModule } from "./mode/modes.module";
-import { WrestlersModule } from "./wrestler/wrestler.module";
+import { ArenaModule } from './arena/arena.module';
+import { MatchModule } from './match/match.module';
+import { ModeModule } from './mode/mode.module';
+import { UserModule } from './user/user.module';
+import { WrestlerModule } from './wrestler/wrestler.module';
 
-@Module({ imports: [TypeOrmModule.forRoot(), ModesModule, WrestlersModule] })
+@Module({
+  imports: [
+    TypeOrmModule.forRoot(),
+    ArenaModule,
+    MatchModule,
+    ModeModule,
+    UserModule,
+    WrestlerModule
+  ]
+})
 export class ApplicationModule {}

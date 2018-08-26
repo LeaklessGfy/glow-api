@@ -5,9 +5,9 @@ import { Repository } from 'typeorm';
 import { ModeDTO } from './data/mode.dto';
 
 @Injectable()
-export class ModesService {
+export class ModeService {
   constructor(
-    @InjectRepository(ModeDTO) private readonly repo: Repository<ModeDTO>
+    @InjectRepository(ModeDTO) private readonly repo: Repository<ModeDTO>,
   ) {}
 
   async findAll(): Promise<ModeDTO[]> {

@@ -1,50 +1,50 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiUseTags } from '@nestjs/swagger';
-import { ModeDTO } from './data/mode.dto';
-import { ModesService } from './modes.service';
+import { ArenaService } from './arena.service';
+import { ArenaDTO } from './data/arena.dto';
 
-@ApiUseTags('modes')
-@Controller('modes')
-export class ModesController {
-  constructor(private readonly service: ModesService) {}
+@ApiUseTags('arenas')
+@Controller('arenas')
+export class ArenaController {
+  constructor(private readonly service: ArenaService) {}
 
   @ApiOperation({
-    title: 'Find all modes'
+    title: 'Find all arenas',
   })
   @ApiResponse({
     status: 200,
     description: 'Good',
-    type: ModeDTO,
-    isArray: true
+    type: ArenaDTO,
+    isArray: true,
   })
   @Get()
-  findAll(): Promise<ModeDTO[]> {
+  findAll(): Promise<ArenaDTO[]> {
     return this.service.findAll();
   }
 
   @ApiOperation({
-    title: 'Find one mode by id'
+    title: 'Find one arena by id',
   })
   @ApiResponse({
     status: 200,
     description: 'Good',
-    type: ModeDTO
+    type: ArenaDTO,
   })
   @Get(':id')
-  find(@Param('id') id: number): Promise<ModeDTO> {
+  find(@Param('id') id: number): Promise<ArenaDTO> {
     return this.service.find(id);
   }
 
   @ApiOperation({
-    title: 'Find one mode by uid'
+    title: 'Find one arena by uid',
   })
   @ApiResponse({
     status: 200,
     description: 'Good',
-    type: ModeDTO
+    type: ArenaDTO,
   })
   @Get(':uid')
-  findUid(@Param('uid') uid: string): Promise<ModeDTO> {
+  findUid(@Param('uid') uid: string): Promise<ArenaDTO> {
     return this.service.findUid(uid);
   }
 }
