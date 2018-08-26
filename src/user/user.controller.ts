@@ -10,7 +10,7 @@ export class UserController {
   constructor(private readonly service: UserService) {}
 
   @ApiOperation({
-    title: 'Find all modes',
+    title: 'Find all users',
   })
   @ApiResponse({
     status: 200,
@@ -24,7 +24,7 @@ export class UserController {
   }
 
   @ApiOperation({
-    title: 'Find one mode by id',
+    title: 'Find one user by id',
   })
   @ApiResponse({
     status: 200,

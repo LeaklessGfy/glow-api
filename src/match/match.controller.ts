@@ -1,6 +1,7 @@
 import { ApiOperation, ApiResponse, ApiUseTags } from '@nestjs/swagger';
-import { Controller, Get, Param } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 
+import { InsertResult } from 'typeorm';
 import { MatchDTO } from './data/match.dto';
 import { MatchService } from './match.service';
 
@@ -10,7 +11,7 @@ export class MatchController {
   constructor(private readonly service: MatchService) {}
 
   @ApiOperation({
-    title: 'Find all arenas',
+    title: 'Find all matches',
   })
   @ApiResponse({
     status: 200,
@@ -24,7 +25,7 @@ export class MatchController {
   }
 
   @ApiOperation({
-    title: 'Find one arena by id',
+    title: 'Find one match by id',
   })
   @ApiResponse({
     status: 200,
@@ -34,5 +35,18 @@ export class MatchController {
   @Get(':id')
   find(@Param('id') id: number): Promise<MatchDTO> {
     return this.service.find(id);
+  }
+
+  @ApiOperation({
+    title: 'Create a match',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'Good',
+    type: MatchDTO,
+  })
+  @Post()
+  create(@Body() matchDTO: MatchDTO): Promise<InsertResult> {
+    return this.service.create(matchDTO);
   }
 }

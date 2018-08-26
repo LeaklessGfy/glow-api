@@ -1,4 +1,5 @@
 import {
+  Column,
   Entity,
   JoinTable,
   ManyToMany,
@@ -17,17 +18,18 @@ export class MatchDTO {
   id: number;
 
   @ApiModelProperty({ type: Number })
-  @ManyToOne(type => ModeDTO)
+  @ManyToOne(type => ModeDTO, { nullable: false })
   mode: ModeDTO;
 
   @ApiModelProperty({ type: WrestlerDTO, isArray: true })
-  @ManyToMany(type => WrestlerDTO)
+  @ManyToMany(type => WrestlerDTO, { nullable: false })
   @JoinTable()
   players: WrestlerDTO[];
 
   states: any[];
 
   @ApiModelProperty({ type: Object })
+  @Column('json')
   mapper: Map<String, Number>;
 
   referee: any;
