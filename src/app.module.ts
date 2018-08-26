@@ -1,18 +1,8 @@
 import { Module } from "@nestjs/common";
-import { CardsController } from "./cards.controller";
-import { ModesController } from "./modes.controller";
-import { TurnsController } from "./turns.controller";
-import { WrestlersController } from "./wrestlers.controller";
-import Services from "./service";
+import { TypeOrmModule } from "@nestjs/typeorm";
 
-@Module({
-  imports: [],
-  controllers: [
-    CardsController,
-    ModesController,
-    TurnsController,
-    WrestlersController
-  ],
-  components: Services
-})
+import { ModesModule } from "./mode/modes.module";
+import { WrestlersModule } from "./wrestler/wrestler.module";
+
+@Module({ imports: [TypeOrmModule.forRoot(), ModesModule, WrestlersModule] })
 export class ApplicationModule {}
